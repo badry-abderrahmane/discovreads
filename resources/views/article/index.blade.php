@@ -1,10 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app_made')
 
 @section('content')
-    @component('particals.jumbotron')
-        <h3>{{ config('blog.article.title') }}</h3>
-
-        <h6>{{ config('blog.article.description') }}</h6>
+    @component('particals.adsspace')
+        
     @endcomponent
 
     @include('widgets.article')

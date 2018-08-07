@@ -37,6 +37,7 @@ mix.webpackConfig({
 let themes = [
   'resources/assets/sass/themes/default-theme.scss',
   'resources/assets/sass/themes/gray-theme.scss',
+  'resources/assets/sass/themes/black-theme.scss',
 ];
 
 themes.forEach((item) => {

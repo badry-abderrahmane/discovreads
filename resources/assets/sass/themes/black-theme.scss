@@ -1,22 +1,49 @@
+body{
+  
+}
+
 a {
-  color: #34495e;
+  color: #03a87c;
   text-decoration: none;
 }
 
-.navbar {
-  background-color: #151515;
+
+
+.nav-register {
+  border: 1px solid black;
+  color: #03a87c !important;
+  padding: 6px 16px;
+  border-radius: 5px;
+  border-color: #03a87c;
+}
+
+
+.navbar-brand {
+  font-family: 'Abril Fatface', cursive;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+.brand-name {
+  font-family: 'Abril Fatface', cursive;
+  padding-left: 1em;
+  font-size: 1rem;
 }
 
 .navbar-dark .navbar-nav .nav-link {
   color: #fff;
 
   &:focus {
-    color: #6289ad;
+    color: #FBC403;
     background-color: transparent;
+    border-color: #FBC403;
   }
   &:hover {
-    color: #6289ad;
+    color: #FBC403;
     background-color: transparent;
+    border-color: #FBC403;
   }
 }
 
@@ -26,6 +53,30 @@ a {
   li a {
     color: #6289ad;
   }
+}
+
+.btn-outline-success {
+    color: #03a87c;
+    background-image: none;
+    background-color: transparent;
+    border-color: #03a87c;
+}
+
+.btn-outline-success.active, .btn-outline-success:active, .show>.btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #03a87c;
+    border-color: #03a87c;
+}
+
+.btn-outline-success.disabled, .btn-outline-success:disabled {
+    color: #03a87c;
+    background-color: transparent;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #03a87c;
+    border-color: #03a87c;
 }
 
 .btn-success {
@@ -72,7 +123,7 @@ a {
 }
 
 .jumbotron.jumbotron-fluid {
-  background-color: #9caebf;
+  background-color: #66DDAA;
 }
 
 .search input {
@@ -90,19 +141,5 @@ a {
 
   &::-ms-input-placeholder {
       color: #fff;
-  }
-}
-
-.footer {
-  background-color: #9caebf;
-  color: #fff;
-  margin-top: 30px;
-
-  .copy-right {
-    background-color: #9caebf;
-  }
-
-  a:hover {
-    color: #6289ad;
   }
 }
