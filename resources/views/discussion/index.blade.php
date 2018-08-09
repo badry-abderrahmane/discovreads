@@ -1,14 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.app_made')
 
 @section('content')
-    @component('particals.jumbotron')
+    <!-- @component('particals.jumbotron')
         <h4>{{ lang('Discuss Problem') }}</h4>
 
         <h6>{{ lang('Discuss Subtitle') }}</h6>
 
         <a href="{{ url('discussion/create') }}" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> {{ lang('Submit Problem') }}</a>
-    @endcomponent
+    @endcomponent -->
 
+    <div class="row text-center">
+      <div class="col-lg-4 offset-lg-4">
+          <a href="{{ url('discussion/create') }}" class="btn btn-success"><i class="fa fa-send"></i> {{ lang('Submit Problem') }}</a>
+      </div>
+    </div>
     <div class="discussion container mb-4">
         <div class="row">
             <div class="col-md-8 offset-md-2">

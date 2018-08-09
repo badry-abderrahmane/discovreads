@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_made')
 
 @section('title', $discussion->title)
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_made')
 
 @section('content')
 <div class="container">
@@ -66,7 +66,7 @@
 
                         <div class="form-group">
                             <div class="col-md-10 offset-md-1">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-success form-control">
                                     {{ lang('Register') }}
                                 </button>
                             </div>

@@ -9,7 +9,7 @@
         <div class="media" v-for="(comment, index) in comments" v-else>
           <div class="media-left mr-3">
             <a :href="'/user/' + comment.username">
-              <img class="media-object rounded-circle" :src="comment.avatar">
+              <img class="media-object rounded-circle" :src="comment.avatar" height="32px">
             </a>
           </div>
           <div class="media-body box-body">

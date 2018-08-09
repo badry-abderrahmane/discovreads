@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_made')
 
 @section('content')
     @component('particals.jumbotron')
