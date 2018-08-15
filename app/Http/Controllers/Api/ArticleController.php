@@ -43,6 +43,7 @@ class ArticleController extends ApiController
 
         $data['is_draft']    = isset($data['is_draft']);
         $data['is_original'] = isset($data['is_original']);
+
         $data['content'] = $data['content'];
 
         $this->article->store($data);
@@ -78,7 +79,7 @@ class ArticleController extends ApiController
             'last_user_id' => \Auth::id()
         ]);
 
-        $data['content'] = $data['content'];
+        $data['content']  = $data['content'];
 
         $this->article->update($id, $data);
 

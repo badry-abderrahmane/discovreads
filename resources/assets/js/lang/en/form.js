@@ -17,6 +17,7 @@ export default {
   'datetime': 'Date Time',
   'is_draft': 'Is Draft?',
   'is_original': 'Is Original?',
+  'featured': 'Is Featured?',
   'status': 'Status',
   'discussions': 'Discussion',
   'articles': 'Article',

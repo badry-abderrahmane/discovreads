@@ -84,6 +84,17 @@
               </label>
             </div>
           </div>
+          <div class="col-sm-2 col-form-label">
+            {{ $t('form.featured') }}
+          </div>
+          <div class="col-sm-2">
+            <div class="togglebutton" style="margin-top: 6px">
+              <label>
+                <input type="checkbox" name="featured" v-model="article.featured">
+                <span class="toggle"></span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-sm-12">

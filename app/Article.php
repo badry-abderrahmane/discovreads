@@ -35,6 +35,7 @@ class Article extends Model
         'meta_description',
         'is_draft',
         'is_original',
+        'featured',
         'published_at',
     ];
 
