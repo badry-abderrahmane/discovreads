@@ -14,14 +14,14 @@
           </div>
           <div class="media-body box-body">
             <div class="heading">
-              <i class="fas fa-user"></i><a :href="'/user/' + comment.username">{{ comment.username }}</a> &nbsp;&nbsp;&nbsp;&nbsp;
-              <i class="fas fa-clock"></i>{{ comment.created_at }}
+              <i class="fa fa-user"></i><a :href="'/user/' + comment.username">{{ comment.username }}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="fa fa-clock-o"></i>{{ comment.created_at }}
               <span class="float-right operate">
                 <vote-button v-if="username != comment.username" :item="comment"></vote-button>
                 <a href="javascript:;" @click="commentDelete(index, comment.id)" v-if="username == comment.username">
-                  <i class="fas fa-trash-alt"></i>
+                  <i class="fa fa-trash-alt"></i>
                 </a>
-                <a href="javascript:;" @click="reply(comment.username)"><i class="fas fa-share"></i></a>
+                <a href="javascript:;" @click="reply(comment.username)"><i class="fa fa-share"></i></a>
               </span>
             </div>
             <div class="comment-body markdown" :class="comment.is_down_voted ? 'downvoted' : ''" v-html="comment.content_html"></div>

@@ -9,14 +9,14 @@
         <h6>{{ $article->subtitle }}</h6>
 
         <div class="header">
-            <i class="fas fa-user"></i>{{ $article->user->name or 'null' }}，
+            <i class="fa fa-user"></i>{{ $article->user->name or 'null' }}，
             @if(count($article->tags))
-            <i class="fas fa-tags"></i>
+            <i class="fa fa-tags"></i>
                 @foreach($article->tags as $tag)
                     <a href="{{ url('tag', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>，
                 @endforeach
             @endif
-            <i class="fas fa-clock"></i>{{ $article->published_at->diffForHumans() }}
+            <i class="fa fa-clock"></i>{{ $article->published_at->diffForHumans() }}
         </div>
     @endcomponent
 

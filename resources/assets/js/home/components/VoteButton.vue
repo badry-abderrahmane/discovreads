@@ -1,11 +1,11 @@
 <template>
   <span class="vote-button">
     <a href="javascript:;" @click="upVote(item.id)">
-      <i :class="item.is_up_voted ? 'fas fa-thumbs-up text-success' : 'far fa-thumbs-up'"></i>
+      <i :class="item.is_up_voted ? 'fas fa-thumbs-up text-success' : 'fa fa-thumbs-up'"></i>
       <small v-if="item.vote_count > 0">{{ item.vote_count }}</small>
     </a>
     <a href="javascript:;" @click="downVote(item.id)">
-      <i :class="item.is_down_voted ? 'fas fa-thumbs-down text-danger' : 'far fa-thumbs-down'"></i>
+      <i :class="item.is_down_voted ? 'fas fa-thumbs-down text-danger' : 'fa fa-thumbs-down'"></i>
     </a>
   </span>
 </template>

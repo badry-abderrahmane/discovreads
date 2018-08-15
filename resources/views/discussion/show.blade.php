@@ -6,10 +6,10 @@
     @component('particals.jumbotron')
         <h4>{{ $discussion->title }}</h4>
 
-        <span><i class="fas fa-user" style="margin-right: 10px"></i>{{ $discussion->user->name or 'null' }}</span><br/>
+        <span><i class="fa fa-user" style="margin-right: 10px"></i>{{ $discussion->user->name or 'null' }}</span><br/>
 
         @can('update', $discussion)
-            <a href="{{ url("discussion/{$discussion->id}/edit") }}" class="edit-discuss btn btn-info btn-sm"><i class="fas fa-pencil-alt" style="padding: 0"></i> {{ lang('Edit Problem') }}</a>
+            <a href="{{ url("discussion/{$discussion->id}/edit") }}" class="edit-discuss btn btn-info btn-sm"><i class="fa fa-pencil-alt" style="padding: 0"></i> {{ lang('Edit Problem') }}</a>
         @endcan
     @endcomponent
 
@@ -19,8 +19,8 @@
                 <div class="media">
                     <div class="media-body box-body">
                         <div class="heading">
-                            <i class="fas fa-clock"></i>{{ lang('Published At') }} : {{ $discussion->created_at }}&nbsp;&nbsp;&nbsp;&nbsp;
-                            <i class="fas fa-comment"></i>{{ lang('Replies Num') }} : {{ $discussion->comments->count() }}
+                            <i class="fa fa-clock"></i>{{ lang('Published At') }} : {{ $discussion->created_at }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-comment"></i>{{ lang('Replies Num') }} : {{ $discussion->comments->count() }}
                         </div>
                         <div class="discuss-body">
                             <parse content="{{ json_decode($discussion->content)->raw }}"></parse>
