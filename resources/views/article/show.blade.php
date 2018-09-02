@@ -1,68 +1,289 @@
-@extends('layouts.app_made')
+@extends('layouts.app_vide')
 
 @section('title', $article->title)
 
 @section('content')
-    @component('particals.jumbotron')
-        <h4>{{ $article->title }}</h4>
+<section class="s-content s-content--narrow s-content--no-padding-bottom">
+        <article class="row format-standard">
 
-        <h6>{{ $article->subtitle }}</h6>
+            <div class="s-content__header col-full">
+                <h1 class="s-content__header-title">
+                    {{ $article->title }}
+                </h1>
+                <h4>{{ $article->subtitle }}</h4>
+                <ul class="s-content__header-meta">
+                    <li class="date">{{ $article->published_at->diffForHumans() }}</li>
+                    <li class="cat">
+                        By
+                        <a href="#0">{{ $article->user->name or 'null' }}</a>
+                    </li>
+                </ul>
+            </div> <!-- end s-content__header -->
 
-        <div class="header">
-            <i class="fa fa-user"></i>{{ $article->user->name or 'null' }}，
-            @if(count($article->tags))
-            <i class="fa fa-tags"></i>
-                @foreach($article->tags as $tag)
-                    <a href="{{ url('tag', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>，
-                @endforeach
-            @endif
-            <i class="fa fa-clock"></i>{{ $article->published_at->diffForHumans() }}
-        </div>
-    @endcomponent
-
-    <div class="article container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-
-            <parse content="{{ $article->content['raw'] }}"></parse>
-
-            @if($article->is_original)
-                <div class="publishing alert alert-dismissible alert-info">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    {!! config('blog.license') !!}
+            <div class="s-content__media col-full">
+                <div class="s-content__post-thumb">
+                    <img src="{{ $article->page_image }}" alt="" >
                 </div>
+            </div> <!-- end s-content__media -->
+
+            <div class="col-full s-content__main">
+              <div class="ql-editor">
+                  {!! $article->content['html'] !!}
+              </div>
+
+                <!-- <parse content="{{ $article->content['raw'] }}"></parse> -->
+
+                @if(count($article->tags))
+                    <p class="s-content__tags">
+                        <span>Post Tags</span>
+                        <span class="s-content__tag-list">
+                          @foreach($article->tags as $tag)
+                              <a href="{{ url('tag', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>
+                          @endforeach
+                        </span>
+                    </p> <!-- end s-content__tags -->
                 @endif
-                @if(config('blog.social_share.article_share'))
-                <div class="footing">
-                    <div class="social-share"
-                        data-title="{{ $article->title }}"
-                        data-description="{{ $article->title }}"
-                        {{ config('blog.social_share.sites') ? "data-sites=" . config('blog.social_share.sites') : '' }}
-                        {{ config('blog.social_share.mobile_sites') ? "data-mobile-sites=" . config('blog.social_share.mobile_sites') : '' }}
-                        initialized></div>
-                </div>
-                @endif
-            </div>
-        </div>
-    </div>
 
-    @if(Auth::guest())
-        <comment title="comments"
-                 commentable-type="articles"
-                 commentable-id="{{ $article->id }}"></comment>
-    @else
-        <comment title="comments"
-                 username="{{ Auth::user()->name }}"
-                 user-avatar="{{ Auth::user()->avatar }}"
-                 commentable-type="articles"
-                 commentable-id="{{ $article->id }}"
-                 can-comment></comment>
-    @endif
 
-@endsection
+                <!-- <div class="s-content__author">
+                    <img src="images/avatars/user-03.jpg" alt="">
 
-@section('scripts')
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
-@endsection
+                    <div class="s-content__author-about">
+                        <h4 class="s-content__author-name">
+                            <a href="#0">{{ $article->user->name or 'null' }}</a>
+                        </h4>
+
+                        <p>Alias aperiam at debitis deserunt dignissimos dolorem doloribus, fuga fugiat impedit laudantium magni maxime nihil nisi quidem quisquam sed ullam voluptas voluptatum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        </p>
+
+                        <ul class="s-content__author-social">
+                           <li><a href="#0">Facebook</a></li>
+                           <li><a href="#0">Twitter</a></li>
+                           <li><a href="#0">GooglePlus</a></li>
+                           <li><a href="#0">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <div class="s-content__pagenav">
+                    <div class="s-content__nav">
+                        <div class="s-content__prev">
+                            <a href="#0" rel="prev">
+                                <span>Previous Post</span>
+                                Tips on Minimalist Design
+                            </a>
+                        </div>
+                        <div class="s-content__next">
+                            <a href="#0" rel="next">
+                                <span>Next Post</span>
+                                Less Is More
+                            </a>
+                        </div>
+                    </div>
+                </div> <!-- end s-content__pagenav -->
+
+            </div> <!-- end s-content__main -->
+
+        </article>
+
+
+        <!-- comments
+        ================================================== -->
+        <div class="comments-wrap">
+
+            <div id="comments" class="row">
+                <div class="col-full">
+
+                    <h3 class="h2">5 Comments</h3>
+
+                    <!-- commentlist -->
+                    <ol class="commentlist">
+
+                        <li class="depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="images/avatars/user-01.jpg" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                    <cite>Itachi Uchiha</cite>
+
+                                    <div class="comment__meta">
+                                        <time class="comment__time">Dec 16, 2017 @ 23:05</time>
+                                        <a class="reply" href="#0">Reply</a>
+                                    </div>
+                                </div>
+
+                                <div class="comment__text">
+                                <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque mei. Nec te inani ponderum vulputate,
+                                facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia mentitum est, ne has voluptua praesent.</p>
+                                </div>
+
+                            </div>
+
+                        </li> <!-- end comment level 1 -->
+
+                        <li class="thread-alt depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                <cite>John Doe</cite>
+
+                                <div class="comment__meta">
+                                    <time class="comment__time">Dec 16, 2017 @ 24:05</time>
+                                    <a class="reply" href="#0">Reply</a>
+                                </div>
+                                </div>
+
+                                <div class="comment__text">
+                                <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium, tota falli et mei. Esse euismod
+                                urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus contentiones nec ad, nec et
+                                tantas semper delicatissimi.</p>
+                                </div>
+
+                            </div>
+
+                            <ul class="children">
+
+                                <li class="depth-2 comment">
+
+                                    <div class="comment__avatar">
+                                        <img width="50" height="50" class="avatar" src="images/avatars/user-03.jpg" alt="">
+                                    </div>
+
+                                    <div class="comment__content">
+
+                                        <div class="comment__info">
+                                            <cite>Kakashi Hatake</cite>
+
+                                            <div class="comment__meta">
+                                                <time class="comment__time">Dec 16, 2017 @ 25:05</time>
+                                                <a class="reply" href="#0">Reply</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="comment__text">
+                                            <p>Duis sed odio sit amet nibh vulputate
+                                            cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
+                                            cursus a sit amet mauris</p>
+                                        </div>
+
+                                    </div>
+
+                                    <ul class="children">
+
+                                        <li class="depth-3 comment">
+
+                                            <div class="comment__avatar">
+                                                <img width="50" height="50" class="avatar" src="images/avatars/user-04.jpg" alt="">
+                                            </div>
+
+                                            <div class="comment__content">
+
+                                                <div class="comment__info">
+                                                <cite>John Doe</cite>
+
+                                                <div class="comment__meta">
+                                                    <time class="comment__time">Dec 16, 2017 @ 25:15</time>
+                                                    <a class="reply" href="#0">Reply</a>
+                                                </div>
+                                                </div>
+
+                                                <div class="comment__text">
+                                                <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
+                                                etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+                                                </div>
+
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+
+                            </ul>
+
+                        </li> <!-- end comment level 1 -->
+
+                        <li class="depth-1 comment">
+
+                            <div class="comment__avatar">
+                                <img width="50" height="50" class="avatar" src="images/avatars/user-02.jpg" alt="">
+                            </div>
+
+                            <div class="comment__content">
+
+                                <div class="comment__info">
+                                <cite>Shikamaru Nara</cite>
+
+                                <div class="comment__meta">
+                                    <time class="comment-time">Dec 16, 2017 @ 25:15</time>
+                                    <a class="reply" href="#">Reply</a>
+                                </div>
+                                </div>
+
+                                <div class="comment__text">
+                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
+                                </div>
+
+                            </div>
+
+                        </li>  <!-- end comment level 1 -->
+
+                    </ol> <!-- end commentlist -->
+
+
+                    <!-- respond
+                    ================================================== -->
+                    <div class="respond">
+
+                        <h3 class="h2">Add Comment</h3>
+
+                        <form name="contactForm" id="contactForm" method="post" action="">
+                            <fieldset>
+
+                                <div class="form-field">
+                                        <input name="cName" type="text" id="cName" class="full-width" placeholder="Your Name" value="">
+                                </div>
+
+                                <div class="form-field">
+                                        <input name="cEmail" type="text" id="cEmail" class="full-width" placeholder="Your Email" value="">
+                                </div>
+
+                                <div class="form-field">
+                                        <input name="cWebsite" type="text" id="cWebsite" class="full-width" placeholder="Website" value="">
+                                </div>
+
+                                <div class="message form-field">
+                                    <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message"></textarea>
+                                </div>
+
+                                <button type="submit" class="submit btn--primary btn--large full-width">Submit</button>
+
+                            </fieldset>
+                        </form> <!-- end form -->
+
+                    </div> <!-- end respond -->
+
+                </div> <!-- end col-full -->
+
+            </div> <!-- end row comments -->
+        </div> <!-- end comments-wrap -->
+
+    </section> <!-- s-content -->
+
+    @endsection
+
+    @section('scripts')
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+    @endsection

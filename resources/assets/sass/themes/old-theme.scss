@@ -1,0 +1,205 @@
+a {
+  color: #3A9BD6;
+  text-decoration: none;
+}
+
+.tag-rounded {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: rgb(210, 205, 203);
+}
+
+a:focus, a:hover {
+    color: #3A9BD6;
+    text-decoration: none;
+}
+
+.card .featured {
+
+}
+
+
+.nav-register {
+  border: 1px solid black;
+  color: #3A9BD6 !important;
+  padding: 6px 16px;
+  border-radius: 5px;
+  border-color: #3A9BD6;
+}
+
+
+.navbar-brand {
+  font-family: 'Abril Fatface', cursive;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+.brand-name {
+  font-family: 'Abril Fatface', cursive;
+  padding-left: 1em;
+  font-size: 1rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+
+  &:focus {
+    color: #FBC403;
+    background-color: transparent;
+    border-color: #FBC403;
+  }
+  &:hover {
+    color: #FBC403;
+    background-color: transparent;
+    border-color: #FBC403;
+  }
+}
+
+.navbar-nav>li>.dropdown-menu {
+  border: none;
+
+  li a {
+    color: #6289ad;
+  }
+}
+.navbar-nav > li > .dropdown-menu li a {
+    color: #3A9BD6;
+}
+
+.fa {
+  padding-right: .2em;
+}
+
+.section-title span {
+    color: #3A9BD6;
+    border-bottom: 1px solid #3A9BD6;
+}
+
+.btn-outline-success {
+    color: #3A9BD6;
+    background-image: none;
+    background-color: transparent;
+    border-color: #3A9BD6;
+}
+
+.btn-outline-success.active, .btn-outline-success:active, .show>.btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #3A9BD6;
+    border-color: #3A9BD6;
+}
+
+.btn-outline-success.disabled, .btn-outline-success:disabled {
+    color: #3A9BD6;
+    background-color: transparent;
+}
+
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #3A9BD6;
+    border-color: #3A9BD6;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #3A9BD6;
+  border-color: #3A9BD6;
+
+  &:hover {
+    color: #fff;
+    background-color: #4b6f91;
+    border-color: #486a8a;
+  }
+}
+
+.btn-link {
+  color: #3A9BD6;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #34495e;
+  border-color: #32465b;
+
+  &:hover {
+    color: #fff;
+    background-color: #22303d;
+    border-color: #1c2833;
+  }
+}
+
+.navbar-nav>li>.dropdown-menu>li:focus, .navbar-nav>li>.dropdown-menu>li:hover {
+  text-decoration: none;
+  background-color: #6289ad;
+
+  a {
+    color: #fff;
+  }
+}
+
+.user-follow a.text {
+  color: #fff;
+}
+
+.form-control, .form-control:focus, input {
+  border-width: 2px;
+  box-shadow: none;
+  outline: 0;
+}
+
+.jumbotron.jumbotron-fluid {
+  background-color: #3A9BD6;
+  color: white;
+}
+
+.jumbotron {
+  background-color: #fff;
+  color: white;
+}
+
+/* Start My Style */
+
+.main-content {
+  padding: 5px 15px;
+
+ .header {
+   padding: 40px 0;
+
+   h4 {
+     font-size: 22px;
+     margin-bottom: 20px;
+     font-weight: 700;
+   }
+   h6 {
+     font-size: 18px;
+     margin-bottom: 20px
+   }
+ }
+}
+
+
+.search input {
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+
+  &::placeholder {
+      color: #fff;
+  }
+
+  &::-ms-input-placeholder {
+      color: #fff;
+  }
+
+  &::-ms-input-placeholder {
+      color: #fff;
+  }
+}

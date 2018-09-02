@@ -1,12 +1,14 @@
-@extends('layouts.app_made')
+@extends('layouts.app_tarik')
 
 @section('content')
-    @component('particals.adsspace')
-        
-    @endcomponent
+  <section class="s-content">
+      @component('particals.adsspace')
 
-    @include('widgets.article')
+      @endcomponent
 
-    {{ $articles->links('pagination.default') }}
+      @include('widgets.article_grid')
+
+      {{ $articles->links('pagination.default') }}
+    </section> <!-- s-content -->
 
 @endsection

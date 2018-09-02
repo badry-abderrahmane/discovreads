@@ -38,8 +38,8 @@
         </div>
         <div class="form-group row">
           <label for="title" class="col-sm-2 col-form-label">{{ $t('form.content') }}</label>
-          <div class="col-sm-10">
-            <textarea id="editor"></textarea>
+          <div class="col-sm-12">
+            <vue-editor v-model="article.content"></vue-editor>
           </div>
         </div>
         <div class="form-group row">
@@ -117,11 +117,14 @@ import DatePicker from 'vue-datepicker'
 import FineUploader from 'fine-uploader/lib/traditional'
 import emojione from 'emojione'
 
+import { VueEditor } from "vue2-editor";
+
 export default {
   mixins: [FormMixin],
   components: {
     Multiselect,
-    DatePicker
+    DatePicker,
+    VueEditor
   },
   props: {
     article: {
@@ -148,7 +151,8 @@ export default {
     article() {
       this.selected = this.article.category.data
       this.tags = this.article.tags.data
-      this.simplemde.value(this.article.content)
+
+      //this.simplemde.value(this.article.content)
       this.startTime.time = this.article.published_time
     }
   },
@@ -156,19 +160,19 @@ export default {
     let t = this.$t || this.$i18n.t;
     let self = this;
 
-    this.simplemde = new SimpleMDE({
-      element: document.getElementById("editor"),
-      placeholder: t('form.content_placeholder', { type: t('form.article') }),
-      autoDownloadFontAwesome: true,
-      forceSync: true,
-      previewRender(plainText, preview) {
-        preview.className += ' markdown'
+    // this.simplemde = new SimpleMDE({
+    //   element: document.getElementById("editor"),
+    //   placeholder: t('form.content_placeholder', { type: t('form.article') }),
+    //   autoDownloadFontAwesome: true,
+    //   forceSync: true,
+    //   previewRender(plainText, preview) {
+    //     preview.className += ' markdown'
+    //
+    //     return self.parse(plainText)
+    //   },
+    // })
 
-        return self.parse(plainText)
-      },
-    })
-
-    this.contentUploader()
+    //this.contentUploader()
   },
   methods: {
     parse(content) {
@@ -196,7 +200,7 @@ export default {
       }
 
       this.article.published_at = this.startTime.time
-      this.article.content = this.simplemde.value()
+      //this.article.content = this.content
       this.article.category_id = this.selected.id
       this.article.tags = JSON.stringify(tagIDs)
 
