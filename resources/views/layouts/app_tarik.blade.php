@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Philosophy</title>
+    <title>Discovread</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -38,7 +38,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    
+
 </head>
 
 <body id="top">
